@@ -8,11 +8,11 @@ export default function Header() {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();  
     const urlParams = new URLSearchParams(window.location.search);
-    urlParams.set('searchTerm', searchTerm);
-    const searchQuery = urlParams.toString();
-    navigate(`/search?${searchQuery}`);
+    urlParams.set('searchTerm', searchTerm) ;
+    const searchQuery = urlParams.toString(); 
+    navigate(`/search?${searchQuery}`); 
   };
 
   useEffect(() => {

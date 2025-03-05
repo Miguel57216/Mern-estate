@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 export default function OAuth() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleGoogleClick = async () => {
+  const handleGoogleClick = async () => { 
     try {
       const provider = new GoogleAuthProvider();
       const auth = getAuth(app);
@@ -16,7 +16,7 @@ export default function OAuth() {
 
       const res = await fetch('/api/auth/google', {
         method: 'POST',
-        headers: {
+        headers: { 
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -24,7 +24,7 @@ export default function OAuth() {
           email: result.user.email,
           photo: result.user.photoURL,
         }),
-      });
+      }); 
       const data = await res.json();
       dispatch(signInSuccess(data));
       navigate('/');
@@ -33,12 +33,12 @@ export default function OAuth() {
     }
   };
   return (
-    <button
+    <button 
       onClick={handleGoogleClick}
-      type='button'
+      type='button' 
       className='bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95'
     >
-      Continue with google
-    </button>
+      Continue with google 
+    </button> 
   );
 }
